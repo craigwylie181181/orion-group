@@ -192,7 +192,8 @@ footer li{margin-bottom:10px}
 footer a:hover{color:var(--gold-light)}
 .foot-brand p{margin-top:16px;color:#8d97ad;max-width:280px}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#7c87a0;font-size:.82rem}
-.tmg{color:#c2cadb}.tmg b{color:var(--gold-light)}
+.tmg{color:#c2cadb;display:inline-flex;align-items:center}.tmg b{color:var(--gold-light)}
+.tmg-logo{height:22px;width:auto;margin:0 7px;display:inline-block;vertical-align:middle}
 
 /* ---------- REVEAL ---------- */
 .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
