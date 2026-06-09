@@ -38,4 +38,20 @@ document.addEventListener('DOMContentLoaded',function(){
   }
   var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCount(e.target);co.unobserve(e.target);}});},{threshold:.6});
   document.querySelectorAll('.num').forEach(function(el){co.observe(el);});
+
+  // news country filter
+  var fbtns=document.querySelectorAll('.fbtn');
+  if(fbtns.length){
+    fbtns.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var c=this.dataset.country;
+        fbtns.forEach(function(b){b.classList.remove('active');});
+        this.classList.add('active');
+        document.querySelectorAll('.ncard').forEach(function(card){
+          var match=(c==='all'||card.dataset.country===c);
+          card.classList.toggle('hide',!match);
+        });
+      });
+    });
+  }
 });
