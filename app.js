@@ -39,6 +39,31 @@ document.addEventListener('DOMContentLoaded',function(){
   var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCount(e.target);co.unobserve(e.target);}});},{threshold:.6});
   document.querySelectorAll('.num').forEach(function(el){co.observe(el);});
 
+  // service category tabs
+  var segbtns=document.querySelectorAll('.seg .segbtn');
+  if(segbtns.length){
+    segbtns.forEach(function(b){
+      b.addEventListener('click',function(){
+        var cat=this.dataset.cat;
+        segbtns.forEach(function(x){x.classList.remove('active');});
+        this.classList.add('active');
+        document.querySelectorAll('.cat-panel').forEach(function(p){
+          p.classList.toggle('active',p.dataset.cat===cat);
+        });
+      });
+    });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=this.parentElement;
+      var ans=item.querySelector('.faq-a');
+      var open=item.classList.toggle('open');
+      ans.style.maxHeight=open?ans.scrollHeight+'px':null;
+    });
+  });
+
   // news country filter
   var fbtns=document.querySelectorAll('.fbtn');
   if(fbtns.length){
